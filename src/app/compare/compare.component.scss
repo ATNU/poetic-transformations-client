@@ -1,0 +1,11 @@
+.compare-view-container{
+    display: flex;
+    flex-direction: row;
+    margin-top: 1%;
+    overflow: scroll;
+}
+.compare-view-panel{
+    width: 30%;
+    overflow:scroll;
+    margin-right: 2%;
+}

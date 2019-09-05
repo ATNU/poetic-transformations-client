@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.header {
+    margin-left: 10%;
+    margin-top: 2%;
+}
+.content-box {
+    margin-left: 10%;
+    margin-top: 2%;
+}
+
+.repeat-item-box {
+    border: 2px solid black;
+    width: 50%;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 1%;
+}
+
+.text-box{
+    width: 70%;
+    order: 2;
+    margin-left: 2%;
+}
+
+.img-box{
+    width: 20%;
+    order: 1;
+}

@@ -1,8 +1,18 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { VersionListComponent } from './version-list/version-list.component';
+import { ViewParentListComponent } from './view-parent-list/view-parent-list.component';
+import { ViewPoemComponent } from './view-poem/view-poem.component';
+import { CompareComponent } from './compare/compare.component';
 
+const routes: Routes = [
+  {path: 'home', component: ViewParentListComponent},
+  {path: 'versions/:id', component: VersionListComponent},
+  {path: 'view-poem/:id', component: ViewPoemComponent},
+  {path: 'compare/:compareList', component: CompareComponent},
+  { path: '',  redirectTo: 'home', pathMatch: 'full' }
 
-const routes: Routes = [];
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

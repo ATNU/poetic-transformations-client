@@ -1,0 +1,24 @@
+<div class='content-box'>
+    <h2>Versions of {{id}}</h2>
+    <button (click)="comparePoems()">Compare Selected</button>
+    <!-- list of versions -->
+    <div *ngFor="let item of versionList">
+        <div class='repeat-item-box'  >
+            
+            <div class="img-box">
+                <img [src]="'../../assets/thumbnails/'+item.versionID[0].idno[0]._+'.jpg'">
+            </div>
+
+            <div class="text-box">
+                <p>Title: {{item.versionTitle}}</p>  
+                <p>Author: {{item.author}}</p>
+                <p>Type: {{item.type}}</p>
+                <p>Source: {{item.source}}</p>
+                <button (click)="addToCompare(item.versionID[0].idno[0]._)">Add to Compare</button>
+                <button (click)="routeView(item.versionID[0].idno[0]._)">View Poem</button>
+            </div>
+            
+            
+        </div>
+    </div>
+</div>
