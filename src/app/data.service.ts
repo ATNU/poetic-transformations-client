@@ -59,10 +59,8 @@ export class DataService {
     return this.http.get(environment.apiBaseURL + '/search/"' + urlSearchText + '"', { headers: new HttpHeaders()
       .set('Content-Type', 'text/xml'), responseType: 'text', observe: 'response'})
       .toPromise()
-   //   .then((response) => response.body
-     // )
-       .then((response) => this.parseXml(response.body, '')
-     )
+      .then((response) => this.parseXml(response.body.replace(re, ''), 'text')
+      )
       .catch(this.handleError);
   }
 

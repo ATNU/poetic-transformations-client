@@ -28,6 +28,8 @@ export class SearchResultsComponent implements OnInit {
 
   }
 
+
+
   public doSearch() {
     console.log(this.searchText);
     const searchTerm = '*' + this.searchText.trim().toLocaleLowerCase() + '*';
@@ -35,5 +37,12 @@ export class SearchResultsComponent implements OnInit {
       this.resultsList = result;
       console.log(result);
     });
+  }
+
+
+      // function called on button click
+  // use angular router to progress to view poem
+  routeView(id: string) {
+    this.router.navigate(['/view-poem/' + id]);
   }
 }

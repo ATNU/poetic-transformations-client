@@ -8,15 +8,27 @@
         <button (click)="doSearch()">Search</button>
                 
         <!-- list of poems -->
-        <div *ngFor="let item of indexList">
+        <div *ngFor="let item of resultsList">
             <div class='repeat-item-box' (click)="routeVersions(item.poemID)" >
                 <div class="img-box">
-                    <p>thumbnail image here</p>
+                        <img [src]="'../../assets/thumbnails/'+item.versionID[0]+'.jpg'">
                 </div>
                 <div class="text-box">
                     <p>Id: {{item.poemID}}</p>  
                     <p>Author: {{item.author}}</p>
-                    <p>Versions: {{item.versions}}</p>
+                    <p>Version: {{item.versionID}}</p>
+                    <p>Title: {{item.title}}</p>
+                    <br/>
+                    <p>Lines Found:</p>
+                    <div *ngFor="let result of item.results">
+                        <div *ngFor="let res of result.p">
+                                <div *ngFor="let re of res.span">
+                                    <p>{{re._}}</p>
+                                </div>
+                                <br/>
+                        </div>
+                    </div>
+                    <button (click)="routeView(item.versionID[0])">View Poem</button>
                 </div>
             </div>
         </div>

@@ -2,7 +2,7 @@
     <h2>Compare</h2>
     <div class = "compare-view-container">
         <div *ngFor="let item of poemXMLToCompare" class='compare-view-panel'>
-            <div>{{item}}</div>
+            <div [innerHTML]="item"></div>
         </div>
     </div>
 </div>
