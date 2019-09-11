@@ -19,6 +19,9 @@ export class CompareComponent implements OnInit {
     private router: Router  ) {}
 
   ngOnInit() {
+    // get string of filenames from URL param
+    // split back into array
+    // fetch from db via dataservice
     this.route.paramMap.subscribe(params => {
       this.compareList = params.get('compareList');
       this.filesToCompare = this.compareList.split(',');

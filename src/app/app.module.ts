@@ -11,17 +11,23 @@ import { VersionListComponent } from './version-list/version-list.component';
 import { ViewPoemComponent } from './view-poem/view-poem.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { CompareComponent } from './compare/compare.component';
+import { FormsModule } from '@angular/forms';
+import { SearchResultsComponent } from './search-results/search-results.component';
+import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+
 @NgModule({
   declarations: [
     AppComponent,
     ViewParentListComponent,
     VersionListComponent,
     ViewPoemComponent,
-    CompareComponent
+    CompareComponent,
+    SearchResultsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientModule,
     NoopAnimationsModule,
     MatCardModule,
@@ -31,7 +37,7 @@ import { CompareComponent } from './compare/compare.component';
     MatDialogModule,
     PdfViewerModule
   ],
-  providers: [],
+  providers: [Location, {provide: LocationStrategy, useClass: PathLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

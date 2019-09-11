@@ -1,0 +1,24 @@
+
+<div class='content-box'>
+        <h2>Search</h2>
+        <!-- search -->
+    
+          <input type="text" placeholder="Search" [(ngModel)]="searchText"> 
+    
+        <button (click)="doSearch()">Search</button>
+                
+        <!-- list of poems -->
+        <div *ngFor="let item of indexList">
+            <div class='repeat-item-box' (click)="routeVersions(item.poemID)" >
+                <div class="img-box">
+                    <p>thumbnail image here</p>
+                </div>
+                <div class="text-box">
+                    <p>Id: {{item.poemID}}</p>  
+                    <p>Author: {{item.author}}</p>
+                    <p>Versions: {{item.versions}}</p>
+                </div>
+            </div>
+        </div>
+    
+    </div>

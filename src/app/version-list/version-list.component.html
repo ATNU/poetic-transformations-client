@@ -1,6 +1,11 @@
 <div class='content-box'>
     <h2>Versions of {{id}}</h2>
-    <button (click)="comparePoems()">Compare Selected</button>
+    <span><button (click)="comparePoems()">Compare Selected</button> {{compareList.length}} </span>
+<br/>
+    <span *ngFor="let choice of compareList">
+                {{choice}}, 
+        
+    </span>
     <!-- list of versions -->
     <div *ngFor="let item of versionList">
         <div class='repeat-item-box'  >

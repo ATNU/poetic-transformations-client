@@ -23,15 +23,15 @@ export class ViewPoemComponent implements OnInit {
 
   totalPages: number;
   page = 1;
-  isLoaded = false;
 
   ngOnInit() {
-
+    // get parameter from URL
     this.route.paramMap.subscribe(params => {
       console.log(params);
       this.id = params.get('id');
     });
 
+    // call data service to get document from server
     this.dataService.getDocument(this.id).then(poem => {
       this.poemDoc = poem;
     });
@@ -40,6 +40,7 @@ export class ViewPoemComponent implements OnInit {
 
   }
 
+  // pdf handling
   nextPage() {
     this.page += 1;
   }
@@ -49,11 +50,7 @@ export class ViewPoemComponent implements OnInit {
   }
 
   afterLoadComplete(pdfData: any) {
-
     this.totalPages = pdfData.numPages;
-    this.isLoaded = true;
-
-
     }
 
 }

@@ -2,16 +2,15 @@
 <div class='content-box'>
     <h2>Index</h2>
     <!-- search -->
-    <mat-form-field>
-        <input matInput type="text" (keyup)="doSearch($event.target.value)" placeholder="Search">
-    </mat-form-field>
+    <input type="text" placeholder="Search" [(ngModel)]="searchText"> 
+    <button (click)="doSearch()">Search</button>
             
     <!-- list of poems -->
     <div *ngFor="let item of indexList">
         <div class='repeat-item-box' (click)="routeVersions(item.poemID)" >
-            <div class="img-box">
-                <p>thumbnail image here</p>
-            </div>
+                <div class="img-box">
+                    <img [src]="'../../assets/thumbnails/'+item.poemID+'.jpg'">
+                </div>
             <div class="text-box">
                 <p>Id: {{item.poemID}}</p>  
                 <p>Author: {{item.author}}</p>

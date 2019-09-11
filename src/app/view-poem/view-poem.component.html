@@ -1,23 +1,19 @@
-
-
-    <h2>View Poem</h2>
-    <div id='xml-view-panel'>{{poemDoc}}</div>
+<h2>View Poem</h2>
+<div id='xml-view-panel' [innerHTML]="poemDoc"></div>
 
 <div id='img-view-panel'>
 
-        <pdf-viewer [src]="pdfSrc" [show-all]="false"  [page]="page" (after-load-complete)="afterLoadComplete($event)" [original-size]="false" [render-text]="true" ></pdf-viewer>
+    <pdf-viewer [src]="pdfSrc" [show-all]="false" [page]="page" (after-load-complete)="afterLoadComplete($event)"
+        [original-size]="false" [render-text]="true"></pdf-viewer>
 
-        <div>
+    <div class='page-nav-buttons'>
 
         <button (click)="previousPage()" [disabled]="page === 1"> Prev </button>
-      
+
         <button (click)="nextPage()" [disabled]="totalPages === 1"> Next </button>
-     
+
         <p>{{ page }} / {{ totalPages }}</p>
 
-        </div>
+    </div>
 
 </div>
-        
-
- 

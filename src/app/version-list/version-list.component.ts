@@ -21,25 +21,34 @@ export class VersionListComponent implements OnInit {
 
 
   ngOnInit() {
+    // get poem ID from URL
     this.route.paramMap.subscribe(params => {
       this.id = params.get('id');
     });
 
+    // use ID to call versions from server via dataservice
     this.dataService.getVersions(this.id).then(versions => {
       this.versionList = versions;
     });
   }
 
+  // function called on button click
+  // use angular router to progress to view poem
   routeView(id: string) {
     this.router.navigate(['/view-poem/' + id]);
   }
 
+  // function called on button click
+  // adds to list of piems to compare, shouldn't duplicate
   addToCompare(filename: string) {
     if (!this.compareList.includes(filename)) {
       this.compareList.push(filename);
     }
   }
 
+  // function called on button click
+  // button to progress to compare page
+  // param string of list of poem filenames to compare
   comparePoems() {
     if (this.compareList.length > 0 ) {
       this.router.navigate(['/compare/' + this.compareList]);
