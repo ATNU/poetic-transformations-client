@@ -5,6 +5,8 @@ import { ViewParentListComponent } from './view-parent-list/view-parent-list.com
 import { ViewPoemComponent } from './view-poem/view-poem.component';
 import { CompareComponent } from './compare/compare.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
+import {AboutComponent} from './about/about.component';
+import {DetailsComponent} from './details/details.component';
 
 const routes: Routes = [
   {path: 'home', component: ViewParentListComponent},
@@ -12,6 +14,8 @@ const routes: Routes = [
   {path: 'view-poem/:id', component: ViewPoemComponent},
   {path: 'compare/:compareList', component: CompareComponent},
   {path: 'search/:searchText', component: SearchResultsComponent},
+  {path: 'about', component: AboutComponent},
+  {path: 'details', component: DetailsComponent},
   { path: '',  redirectTo: 'home', pathMatch: 'full' }
 
 ];

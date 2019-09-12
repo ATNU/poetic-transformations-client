@@ -14,6 +14,8 @@ import { CompareComponent } from './compare/compare.component';
 import { FormsModule } from '@angular/forms';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { AboutComponent } from './about/about.component';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { Location, LocationStrategy, PathLocationStrategy } from '@angular/commo
     VersionListComponent,
     ViewPoemComponent,
     CompareComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    AboutComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,

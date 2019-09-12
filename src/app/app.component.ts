@@ -24,4 +24,12 @@ export class AppComponent {
   routeHome() {
     this.router.navigate(['home']);
   }
+
+  aboutClicked() {
+  this.router.navigate(['about']);
+  }
+
+  detailsClicked() {
+    this.router.navigate(['details']);
+  }
 }
