@@ -32,4 +32,8 @@ export class AppComponent {
   detailsClicked() {
     this.router.navigate(['details']);
   }
+
+  spineClicked() {
+    this.router.navigate(['spine-index']);
+  }
 }

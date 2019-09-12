@@ -89,4 +89,12 @@ export class DataService {
       return result.rawHTML;
     }
 
+    public getSpineIndex() {
+      return this.http.get(environment.apiBaseURL + '/spine?lineID=M1.20', { headers: new HttpHeaders()
+          .set('Content-Type', 'text/json'), responseType: 'json', observe: 'response'})
+        .toPromise()
+        .then((response) => console.log(response)       )
+        .catch(this.handleError);
+    }
+
 }

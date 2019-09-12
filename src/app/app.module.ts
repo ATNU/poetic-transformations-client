@@ -16,6 +16,7 @@ import { SearchResultsComponent } from './search-results/search-results.componen
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { AboutComponent } from './about/about.component';
 import { DetailsComponent } from './details/details.component';
+import { SpineIndexComponent } from './spine-index/spine-index.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { DetailsComponent } from './details/details.component';
     CompareComponent,
     SearchResultsComponent,
     AboutComponent,
-    DetailsComponent
+    DetailsComponent,
+    SpineIndexComponent
   ],
   imports: [
     BrowserModule,
