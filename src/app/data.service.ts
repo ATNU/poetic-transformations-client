@@ -51,7 +51,7 @@ export class DataService {
       .catch(this.handleError);
   }
 
-  // TODO: someething with the results
+  // Search function, XML parsed into JSON object for UI to use
   search(searchText: string) {
     const urlSearchText = encodeURI(searchText);
     console.log(urlSearchText);
@@ -64,7 +64,7 @@ export class DataService {
       .catch(this.handleError);
   }
 
-  // no parsing needed here as we want the TEI document not a JSON object
+  // DOM parsing needed here as we want the TEI document in HTML not a JSON object
   public getDocument(selectedVersion: string): Promise<any> {
     console.log(selectedVersion);
     const fileName = selectedVersion + '.xml';
@@ -81,12 +81,9 @@ export class DataService {
     public parseDom(Str: string) {
       let result;
       const re = /\:/gi;
-      let DomParser = require('dom-parser');
-      let domparser = new DomParser();
-      let StrToParse = Str.replace(re, '');
-
-
-
+      const DomParser = require('dom-parser');
+      const domparser = new DomParser();
+      const StrToParse = Str.replace(re, '');
       result = domparser.parseFromString(StrToParse, 'application.xml');
       console.log(result);
       return result.rawHTML;
