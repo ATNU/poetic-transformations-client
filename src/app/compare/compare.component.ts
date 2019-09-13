@@ -34,8 +34,7 @@ similarity: string;
         // calculate similarity as a percentage
         this.dataService.getSimilarity(this.filesToCompare[0], this.filesToCompare[1]).then (decimal => {
           // convert to percentage
-          const percent = decimal * 100;
-          this.similarity = percent.toString();
+          this.similarity = decimal.toString();
         });
 
       } else { this.twoPoemsSelected = false; }

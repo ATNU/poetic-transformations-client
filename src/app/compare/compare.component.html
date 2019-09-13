@@ -1,6 +1,6 @@
 <div class='content-box'>
   <h2>Compare</h2>
-  <p *ngIf="twoPoemsSelected" >{{similarity}} % similar</p>
+  <p *ngIf="twoPoemsSelected" >{{similarity}} cosine-similarity</p>
   <div class = "compare-view-container">
     <div *ngFor="let item of poemXMLToCompare" class='compare-view-panel'>
       <div [innerHTML]="item"></div>
