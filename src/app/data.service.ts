@@ -107,4 +107,12 @@ export class DataService {
          )
         .catch(this.handleError);
     }
+
+    public getSimilarity(file1: string, file2: string) {
+      return this.http.get(environment.apiBaseURL + '/comp?one=' + file1 + '.xml&two=' + file2 + '.xml', { headers: new HttpHeaders()
+          .set('Content-Type', 'application/json'), responseType: 'text', observe: 'response'})
+        .toPromise()
+        .then((response) => response.body)
+        .catch(this.handleError);
+    }
 }

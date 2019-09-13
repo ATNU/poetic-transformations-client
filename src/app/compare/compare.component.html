@@ -1,5 +1,6 @@
 <div class='content-box'>
   <h2>Compare</h2>
+  <p *ngIf="twoPoemsSelected" >{{similarity}} % similar</p>
   <div class = "compare-view-container">
     <div *ngFor="let item of poemXMLToCompare" class='compare-view-panel'>
       <div [innerHTML]="item"></div>

@@ -12,6 +12,8 @@ export class CompareComponent implements OnInit {
   compareList: string;
   filesToCompare: string[] = [];
   poemXMLToCompare: any[] = [];
+  twoPoemsSelected: boolean;
+similarity: string;
 
   constructor(
     private dataService: DataService,
@@ -25,6 +27,18 @@ export class CompareComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.compareList = params.get('compareList');
       this.filesToCompare = this.compareList.split(',');
+
+      if (this.filesToCompare.length === 2) {
+        this.twoPoemsSelected = true;
+
+        // calculate similarity as a percentage
+        this.dataService.getSimilarity(this.filesToCompare[0], this.filesToCompare[1]).then (decimal => {
+          // convert to percentage
+          const percent = decimal * 100;
+          this.similarity = percent.toString();
+        });
+
+      } else { this.twoPoemsSelected = false; }
 
       for (let filename of this.filesToCompare) {
         this.dataService.getDocument(filename).then(poem => {
