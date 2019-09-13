@@ -93,8 +93,18 @@ export class DataService {
       return this.http.get(environment.apiBaseURL + '/spine?lineID=M1.20', { headers: new HttpHeaders()
           .set('Content-Type', 'text/json'), responseType: 'json', observe: 'response'})
         .toPromise()
-        .then((response) => console.log(response)       )
+        .then((response) => response.body  )
         .catch(this.handleError);
     }
 
+    public getLine(lineID: string) {
+    console.log('getLine URL reached, lineID=' + lineID);
+      const re = /\:/gi;
+      return this.http.get(environment.apiBaseURL + '/line?lineID=' + lineID, { headers: new HttpHeaders()
+          .set('Content-Type', 'text/xml'), responseType: 'text', observe: 'response'})
+        .toPromise()
+        .then((response) => this.parseXml(response.body.replace(re, ''), 'l')
+         )
+        .catch(this.handleError);
+    }
 }

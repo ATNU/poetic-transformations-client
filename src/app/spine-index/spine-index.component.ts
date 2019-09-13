@@ -8,21 +8,35 @@ import { Router } from '@angular/router';
   styleUrls: ['./spine-index.component.scss']
 })
 export class SpineIndexComponent implements OnInit {
-linesList: any[] = [];
 
   constructor(
     private dataService: DataService,
     private router: Router
   ) { }
+linesList: string[] = [];
+linesWithTextList: any[] = [];
+
 
   ngOnInit() {
 
   }
 
-  public getMatchingLines() {
-    this.dataService.getSpineIndex().then(lines => {
-      this.linesList.push(lines);
+  getMatchingLines() {
+    // get list of lines
+      this.dataService.getSpineIndex().then(lines => {
+        this.linesList.push(lines);
+
+    // for each line get text and add to list
+        const lineArr = this.linesList.toString().split(',');
+        for (const lineID of lineArr) {
+      this.dataService.getLine(lineID).then(line => {
+        const text = line[0]._;
+        const lineWithText = {lineID, text };
+        this.linesWithTextList.push(lineWithText);
+      });
+    }
   });
+
 }
 
 }
