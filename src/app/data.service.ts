@@ -28,6 +28,7 @@ export class DataService {
 
   // takes the XML and the path to the path through the object we want to return
   public parseXml(xmlStr: string, path: string) {
+    console.log(xmlStr);
     let result;
     let parser = require('xml2js');
     parser.Parser().parseString(xmlStr, (e, r) => {result = r; });

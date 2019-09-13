@@ -7,15 +7,13 @@
         
     </span>
     <!-- list of versions -->
-    <div *ngFor="let item of versionList">
-        <div class='repeat-item-box'  >
-            
-            <div class="img-box">
-                <img [src]="'../../assets/thumbnails/'+item.versionID[0].idno[0]._+'.jpg'">
-            </div>
-
-            <div class="text-box">
-                <p>Title: {{item.versionTitle}}</p>  
+    <div class="cards" *ngFor="let item of versionList">
+        <div class='card' style="width:200px" >
+                <img class="card-img-top"[src]="'../../assets/thumbnails/'+item.versionID[0].idno[0]._+'.jpg'">
+          <div class="card-title">
+            <H3>{{item.versionTitle}}</H3>
+          </div>
+          <div class="card-body">
                 <p>Author: {{item.author}}</p>
                 <p>Type: {{item.type}}</p>
                 <p>Source: {{item.source}}</p>

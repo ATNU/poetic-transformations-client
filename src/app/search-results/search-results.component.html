@@ -1,36 +1,40 @@
 
 <div class='content-box'>
-        <h2>Search</h2>
+        <h2>Search Results</h2>
         <!-- search -->
     
-          <input type="text" placeholder="Search" [(ngModel)]="searchText"> 
+          <input type="text" placeholder="Search" [(ngModel)]="searchText">
     
-        <button (click)="doSearch()">Search</button>
+        <button class="btn" (click)="doSearch()">Search poems</button>
                 
         <!-- list of poems -->
-        <div *ngFor="let item of resultsList">
-            <div class='repeat-item-box' (click)="routeVersions(item.poemID)" >
-                <div class="img-box">
-                        <img [src]="'../../assets/thumbnails/'+item.versionID[0]+'.jpg'">
-                </div>
-                <div class="text-box">
-                    <p>Id: {{item.poemID}}</p>  
+        <div class="cards" *ngFor="let item of resultsList">
+            <div class="card" style="width:400px" (click)="routeVersions(item.poemID)" >
+<!--              <img class="card-img-top" [src]="'../../assets/thumbnails/'+item.versionID[0]+'.jpg'">-->
+              <div class="card-title">
+                <H3>{{item.title}}</H3>
+              </div>
+              <div class="card-body">
+                    <p>Poem ID: {{item.poemID}}</p>
                     <p>Author: {{item.author}}</p>
-                    <p>Version: {{item.versionID}}</p>
-                    <p>Title: {{item.title}}</p>
+                    <p>Version ID: {{item.versionID}}</p>
+
                     <br/>
+                </div>
+              <div class="card-body">
                     <p>Lines Found:</p>
                     <div *ngFor="let result of item.results">
                         <div *ngFor="let res of result.p">
-                                <div *ngFor="let re of res.span">
-                                    <p>{{re._}}</p>
+                                <ul class="list-group list-group-flush" *ngFor="let re of res.span">
+                                  <li class="list-group-item">{{re._}}</li>
+                                </ul>
                                 </div>
                                 <br/>
                         </div>
                     </div>
-                    <button (click)="routeView(item.versionID[0])">View Poem</button>
+                    <button class="btn-btn-info" (click)="routeView(item.versionID[0])">View Poem</button>
                 </div>
             </div>
         </div>
     
-    </div>
+
