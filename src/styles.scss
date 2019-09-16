@@ -43,3 +43,87 @@ html, body { height: 100%; }
 .card-title{
   text-align:center;
 }
+
+//changes to the text
+span {
+  &.add {
+    font-size: .83em;
+    line-height: 0.5em;
+    vertical-align: baseline;
+    position: relative;
+    top: -0.4em;
+  }
+
+  &.del {
+      text-decoration: line-through;
+    }
+  &.linenumber {
+    font-size:70%;
+
+    //todo align right without loosing a line
+    //display:table;
+    //text-align: right;
+    // margin:auto;
+  }
+&.add.caret.above:before {
+  content: '';
+  border: solid black;
+  border-width: 0 1px 1px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+  margin-right: -10px;
+  margin-top: 30px;
+  margin-bottom: -10px;
+}
+  &.metamark.caret.change-b:before{
+    content: '';
+    border: solid black;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+    margin-top: 30px;
+    margin-bottom: -10px;
+  }
+  &.metamark.arrow.change-b:before {
+    //todo improve on this metamark and remove '[Metamark]' from html
+    content: '\01F823';
+  }
+  &.metamark.arrow:before {
+    //todo improve on this metamark and remove '[Metamark]' from html
+    content: '\01F823';
+  }
+  &.add.left.change-b {
+    margin-left: -40px;
+  }
+  //indicates text supplied by the editor
+&.supplied > *{
+  font-style:italic;
+}
+  &.supplied.previous-deletion{
+    font-style:italic;
+  }
+
+  &.unclear {
+    color:darkslategrey;
+  }
+}
+
+.head.underline {
+  text-decoration: underline;
+}
+
+//unsure what these represents so ignore for now
+.pb {
+  visibility: hidden;
+}
+
+
+div {
+  &.bodyDiv {
+    margin-left: 80px;
+  }
+}
