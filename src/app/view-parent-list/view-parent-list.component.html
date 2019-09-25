@@ -1,21 +1,25 @@
 <div class='content-box'>
   <h2>Index</h2>
   <!-- search -->
-  <input type="text" placeholder="Search" [(ngModel)]="searchText">
-  <button class="btn"(click)="doSearch()">Search</button>
-<div class="cards">
+  <input [(ngModel)]="searchText" placeholder="Search" type="text">
+  <button (click)="doSearch()"class="btn">Search</button>
+<div class="index">
   <!-- list of poems -->
   <div *ngFor="let item of indexList">
-    <div class="card" style="width:200px" (click)="routeVersions(item.poemID)" >
-      <img class="card-img-top" [src]="'../../assets/thumbnails/'+item.poemID+'.jpg'" >
-      <div class="card-title">
-        <H3>{{item.poemID}}</H3>
+    <div (click)="routeVersions(item.poemID)"  class="row">
+      <div class="column">
+        <img [src]="'../../assets/thumbnails/'+item.poemID+'.jpg'" class="card-img-top" >
       </div>
-      <div class="card-body">
-        <p>Author: {{item.author}}</p>
-        <p>Versions: {{item.versions}}</p>
+      <div class="column">
+        <div class="column-title">
+          <H3>{{item.poemID}}</H3>
+        </div>
+        <div class="column-body">
+          <p>Author: {{item.author}}</p>
+          <p>Versions: {{item.versions}}</p>
       </div>
     </div>
+  </div>
   </div>
 </div>
 </div>

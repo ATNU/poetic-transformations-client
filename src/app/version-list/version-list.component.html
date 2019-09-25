@@ -7,13 +7,16 @@
         
     </span>
     <!-- list of versions -->
-    <div class="cards" *ngFor="let item of versionList">
-        <div class='card' style="width:200px" >
-                <img class="card-img-top"[src]="'../../assets/thumbnails/'+item.versionID[0].idno[0]._+'.jpg'">
-          <div class="card-title">
-            <H3>{{item.versionTitle}}</H3>
+    <div *ngFor="let item of versionList" class="index">
+        <div class='row'>
+          <div class="column">
+                <img [src]="'../../assets/thumbnails/'+item.versionID[0].idno[0]._+'.jpg'"class="card-img-top">
           </div>
-          <div class="card-body">
+          <div class=column">
+            <div class="column-title">
+              <H3>{{item.versionTitle}}</H3>
+            </div>
+            <div class="column-body">
                 <p>Author: {{item.author}}</p>
                 <p>Type: {{item.type}}</p>
                 <p>Source: {{item.source}}</p>
@@ -21,8 +24,8 @@
                 <button (click)="addToCompare(item.versionID[0].idno[0]._)">Add to Compare</button>
                 <button (click)="routeView(item.versionID[0].idno[0]._)">View Poem</button>
             </div>
-            
-            
+          </div>
         </div>
     </div>
 </div>
+
