@@ -9,7 +9,8 @@
   </div>
   </div>
 </div>
-  <button type="button" class="btn btn-primary" (click)="getMatchingLines()">Get matching lines</button>
+<!--  todo why isn't keyup.enter working? -->
+  <button type="button" class="btn btn-primary" (keyup.enter)="getMatchingLines()" (click)="getMatchingLines()">Get matching lines</button>
 
   <!-- list of lines -->
   <div class="row card-group">

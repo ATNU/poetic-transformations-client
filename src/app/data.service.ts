@@ -67,7 +67,7 @@ export class DataService {
 
   // DOM parsing needed here as we want the TEI document in HTML not a JSON object
   public getDocument(selectedVersion: string): Promise<any> {
-    console.log(selectedVersion);
+    // console.log(selectedVersion);
     const fileName = selectedVersion + '.xml';
     console.log(fileName);
     return this.http.get(environment.apiBaseURL + '/doc/' + fileName, { headers: new HttpHeaders()

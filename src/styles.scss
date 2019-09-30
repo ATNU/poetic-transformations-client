@@ -193,6 +193,7 @@ span {
   &.supplied.previous-deletion{
     font-style:italic;
   }
+  //don't display page nunmber
 
   &.unclear {
     color:darkslategrey;
@@ -208,6 +209,9 @@ span {
   visibility: hidden;
 }
 
+span.pb-open, span.pb-value, span.pb-close {
+  visibility:hidden;
+}
 
 div {
   &.bodyDiv {
@@ -227,4 +231,7 @@ div {
 
 }
 
+//make xml view panel level with text start in pdf
+xml-view-panel {
 
+}

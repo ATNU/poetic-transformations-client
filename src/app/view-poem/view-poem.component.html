@@ -1,5 +1,5 @@
 <div class="container">
-<div id='xml-view-panel' [innerHTML]="poemDoc"></div>
+<div id='xml-view-panel' [innerHTML]="htmlList[page]"></div>
 </div>
 <div id='img-view-panel'>
     <pdf-viewer [src]="pdfSrc" [show-all]="false" [page]="page" (after-load-complete)="afterLoadComplete($event)"
