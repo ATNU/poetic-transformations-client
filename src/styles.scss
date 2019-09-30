@@ -12,6 +12,13 @@ html, body { height: 100%; }
     margin-top: 2%;
 }
 
+.nav-menu {
+  margin-bottom: 30px;
+}
+.card {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 .repeat-item-box {
     border: 2px solid black;
     width: 50%;
@@ -59,11 +66,8 @@ span {
     }
   &.linenumber {
     font-size:70%;
-
-    //todo align right without loosing a line
-    //display:table;
-    //text-align: right;
-    // margin:auto;
+    float:right;
+    padding-right: 70px;
   }
 &.add.caret.above:before {
   content: '';
@@ -95,6 +99,89 @@ span {
   &.metamark.arrow:before {
     //todo improve on this metamark and remove '[Metamark]' from html
     content: '\01F823';
+  }
+  //para in brackets
+  &.metamark.margin.parenthesis.change-b:before {
+    content: '(';
+    margin-left:-20px;
+  }
+  //tick in margin
+  &.metamark.margin.tick.change-c:before {
+    content: '\2713';
+    margin-left:-20px;
+  }
+  //line above text
+  &.metamark.above.line.change-b:before {
+    content: '-';
+    line-height: 0.5em;
+    vertical-align: baseline;
+    position: relative;
+    top: -0.1em;
+  }
+  //tick above text
+  &.metamark.above.tick.change-b:before {
+    content: '\2713';
+    vertical-align: baseline;
+    position: relative;
+    top: -0.1em;
+    //left:-10px;
+  }
+  //tick below
+  &.metamark.below.tick.change-c:after {
+    content: '\2713';
+    position: relative;
+    float: right;
+  }
+  //para in brackets (closing)
+  &.metamark.margin.parenthesis.change-a:after {
+    content: ')';
+      }
+  //word below another
+    &.note.alternative.below.change-b {
+      font-size: .83em;
+      line-height: 0.5em;
+      vertical-align: baseline;
+      position: relative;
+      top: 0.8em;
+      right:0.9em;
+    }
+  //word below another
+  &.note.below.change-a {
+    font-size: .83em;
+    line-height: 0.5em;
+    vertical-align: baseline;
+    position: relative;
+    top: 0.8em;
+    right:0.9em;
+  }
+  &.metamark.above.asterisk.change-a:before {
+    content: "*";
+    vertical-align: baseline;
+    position: relative;
+    top: -0.1em;
+  }
+  //circle around text
+  &.hi.circle {
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+    border: 2px solid;
+    text-align: center;
+    position: relative;
+   float: right;
+  }
+
+//margin notes
+  &.note.margin.change-c.editor {
+    font-size: .83em;
+    font-style: italic;
+    float:right;
+    transform: rotate(-6deg);
+  }
+  //underline
+  &.hi.underline {
+    text-decoration: underline;
   }
   &.add.left.change-b {
     margin-left: -40px;
@@ -134,4 +221,10 @@ div {
     padding-top: 30px;
   }
 
+  &.div.poem {
+    position:relative;
+  }
+
 }
+
+

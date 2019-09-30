@@ -1,27 +1,28 @@
 
-<div class='content-box'>
+<div class='container'>
         <h2>Search Results</h2>
         <!-- search -->
-    
-          <input type="text" placeholder="Search" [(ngModel)]="searchText">
-    
-        <button class="btn" (click)="doSearch()">Search poems</button>
+  <div class="input-group mb-3" style="width: 20rem;">
+    <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="button-addon2" [(ngModel)]="searchText" >
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="doSearch()">Search</button>
+    </div>
+  </div>
                 
         <!-- list of poems -->
-        <div class="cards" *ngFor="let item of resultsList">
+  <div class="row card-group">
+        <div class="col-lg-4 d-flex align-items-stretch" *ngFor="let item of resultsList">
             <div class="card" style="width:400px" (click)="routeVersions(item.poemID)" >
-<!--              <img class="card-img-top" [src]="'../../assets/thumbnails/'+item.versionID[0]+'.jpg'">-->
-              <div class="card-title">
-                <H3>{{item.title}}</H3>
-              </div>
+
               <div class="card-body">
-                    <p>Poem ID: {{item.poemID}}</p>
+                <div class="card-title">
+                  <H3>{{item.title}}</H3>
+                </div>
+                <p>Poem ID: {{item.poemID}}</p>
                     <p>Author: {{item.author}}</p>
                     <p>Version ID: {{item.versionID}}</p>
 
                     <br/>
-                </div>
-              <div class="card-body">
                     <p>Lines Found:</p>
                     <div *ngFor="let result of item.results">
                         <div *ngFor="let res of result.p">
@@ -32,7 +33,7 @@
                                 <br/>
                         </div>
                     </div>
-                    <button class="btn-btn-info" (click)="routeView(item.versionID[0])">View Poem</button>
+                    <button type="button" class="btn btn-primary" (click)="routeView(item.versionID[0])">View Poem</button>
                 </div>
             </div>
         </div>

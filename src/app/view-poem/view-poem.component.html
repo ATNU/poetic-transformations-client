@@ -1,8 +1,7 @@
-
+<div class="container">
 <div id='xml-view-panel' [innerHTML]="poemDoc"></div>
-
+</div>
 <div id='img-view-panel'>
-
     <pdf-viewer [src]="pdfSrc" [show-all]="false" [page]="page" (after-load-complete)="afterLoadComplete($event)"
         [original-size]="false" [render-text]="true"></pdf-viewer>
 
@@ -13,7 +12,5 @@
         <button (click)="nextPage()" [disabled]="totalPages === 1"> Next </button>
 
         <p>{{ page }} / {{ totalPages }}</p>
-
     </div>
-
 </div>

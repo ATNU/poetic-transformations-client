@@ -1,27 +1,32 @@
-<div class='content-box'>
+<div class='container'>
   <h2>Index</h2>
   <!-- search -->
-  <input [(ngModel)]="searchText" placeholder="Search" type="text">
-  <button (click)="doSearch()" class="btn">Search</button>
 
-  <div class="index">
+  <div class="input-group mb-3" style="width: 20rem;">
+    <input [(ngModel)]="searchText" aria-describedby="button-addon2" aria-label="Search" class="form-control"
+           placeholder="Search" type="text">
+    <div class="input-group-append">
+      <button (click)="doSearch()" class="btn btn-outline-secondary" id="button-addon2" type="button">Search</button>
+    </div>
+  </div>
 
+  <div class="container">
     <!-- list of poems -->
-    <div *ngFor="let item of indexList">
-      <div class='row' (click)="routeVersions(item.poemID)">
-        <div class = 'column'>
-          <img [src]="'../../assets/thumbnails/'+item.poemID+'.jpg'" class="card-img-top">
-        </div>
-        <div class = 'column'>
-          <div class="column-title">
-            <H3>{{item.poemID}}</H3>
-          </div>
-          <div class = 'column-body'>
-            <p>Author: {{item.author}}</p>
-            <p>Versions: {{item.versions}}</p>
+      <div *ngFor="let item of indexList">
+        <div (click)="routeVersions(item.poemID)" class="card" style="width: 10rem;">
+          <div class="card-body">
+            <img [src]="'../../assets/thumbnails/'+item.poemID+'.jpg'" class="card-img-top">
+            <div class="card-title">
+              <H3>{{item.poemID}}</H3>
+            </div>
+            <div class='card-body'>
+              <p>Author: {{item.author}}</p>
+              <p>Versions: {{item.versions}}</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
+<!--    todo display 'no results found'-->
+      </div>
+
 </div>

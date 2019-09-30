@@ -1,33 +1,36 @@
-<div class='content-box'>
-    <h2>Versions of {{id}}</h2>
-<br/>
+<div class='container'>
+  <h2>Versions of {{id}}</h2>
+  <br/>
   <div *ngIf="(compareList.length>0)">
-    <p>Choices:  <span *ngFor="let choice of compareList">   {{choice}}</span>
+    <p>Choices: <span *ngFor="let choice of compareList">   {{choice}}</span>
       <br/>
-<button (click)="comparePoems()">Compare Selected</button>
+      <button type="button" class="btn btn-primary" (click)="comparePoems()">Compare Selected</button>
     </p>
   </div>
 
-    <!-- list of versions -->
-    <div *ngFor="let item of versionList" class="index">
-        <div class='row'>
-          <div class="column">
-                <img [src]="'../../assets/thumbnails/'+item.versionID[0].idno[0]._+'.jpg'"class="card-img-top">
-          </div>
-          <div class="column">
-            <div class="column-title">
-              <H3>{{item.versionTitle}}</H3>
-            </div>
-            <div class="column-body">
-                <p>Author: {{item.author}}</p>
-                <p>Type: {{item.type}}</p>
-                <p>Source: {{item.source}}</p>
-                <p>Changes: {{item.changes}}</p>
-                <button (click)="addToCompare(item.versionID[0].idno[0]._)">Add to Compare</button>
-                <button (click)="routeView(item.versionID[0].idno[0]._)">View Poem</button>
-            </div>
-          </div>
-        </div>
-    </div>
-</div>
+  <div class="container">
 
+    <!-- list of versions -->
+    <div class="row card-group">
+      <div *ngFor="let item of versionList" class="col-md-3 d-flex align-items-stretch">
+        <div class="card">
+          <div class="card-title">
+            <H3>{{item.versionTitle}}</H3>
+          </div>
+          <div class="card-body">
+            <img [src]="'../../assets/thumbnails/'+item.versionID[0].idno[0]._+'.jpg'" class="card-img-top">
+            <p>Author: {{item.author}}</p>
+            <p>Type: {{item.type}}</p>
+            <p *ngIf="(item.source != '')"> Source: {{item.source}}</p>
+            <p>Changes: {{item.changes}}</p>
+            <div class="btn-group" role="group">
+            <button type="button" class="btn btn-primary" (click)="addToCompare(item.versionID[0].idno[0]._)">Add to Compare</button>
+            <button  type="button" class="btn btn-primary" (click)="routeView(item.versionID[0].idno[0]._)">View Poem</button>
+<!--          todo pin buttons to bottom of card-->
+            </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
