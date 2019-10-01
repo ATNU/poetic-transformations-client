@@ -32,9 +32,8 @@ export class ViewPoemComponent implements OnInit {
       this.id = params.get('id');
     });
 
-    // call data service to get document from server
+    // call data service to get document from server and split into pages
     this.dataService.getDocument(this.id).then(poem => {
-      //todo split into a list of pages
       this.htmlList = poem.split('<span class="pb">');
       console.log(this.htmlList[1]);
       this.poemDoc = poem;
@@ -47,12 +46,10 @@ export class ViewPoemComponent implements OnInit {
   // pdf handling
   nextPage() {
     this.page += 1;
-    //todo add instruction for html as well
   }
 
   previousPage() {
     this.page -= 1;
-    //todo add instruction for html as well
   }
 
   afterLoadComplete(pdfData: any) {

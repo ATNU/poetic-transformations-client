@@ -51,8 +51,44 @@ html, body { height: 100%; }
   text-align:center;
 }
 
-//changes to the text
+
+.underline {
+  text-decoration: underline;
+}
+
+.right {
+  float:right;
+  padding-right: 200px;
+}
+
+.centre-right {
+  float: right;
+  padding-right: 300px;
+}
+
+.centre-left {
+  float: right;
+  padding-right: 400px;
+}
+
+.italic {
+  font-style: italic;
+}
+
 span {
+//----Different hands
+  .change-b {
+    color: gray;
+  }
+  .change-c {
+    color: dimgrey;
+  }
+  .change-a {
+    color: blue;
+  }
+
+
+
   &.add {
     font-size: .83em;
     line-height: 0.5em;
@@ -63,12 +99,20 @@ span {
 
   &.del {
       text-decoration: line-through;
+    //todo ideally find a way to retain original text colour and have the strikethrough the colour determined byt the change letter (above)
     }
   &.linenumber {
     font-size:70%;
     float:right;
     padding-right: 70px;
   }
+
+//Margin additions
+.margin {
+  float: left;
+  margin-left:-20px;
+}
+
 &.add.caret.above:before {
   content: '';
   border: solid black;
@@ -81,87 +125,99 @@ span {
   margin-top: 30px;
   margin-bottom: -10px;
 }
-  &.metamark.caret.change-b:before{
-    content: '';
-    border: solid black;
-    border-width: 0 2px 2px 0;
-    display: inline-block;
-    padding: 3px;
-    transform: rotate(-135deg);
-    -webkit-transform: rotate(-135deg);
-    margin-top: 30px;
-    margin-bottom: -10px;
-  }
-  &.metamark.arrow.change-b:before {
-    //todo improve on this metamark and remove '[Metamark]' from html
-    content: '\01F823';
-  }
-  &.metamark.arrow:before {
-    //todo improve on this metamark and remove '[Metamark]' from html
-    content: '\01F823';
-  }
-  //para in brackets
-  &.metamark.margin.parenthesis.change-b:before {
-    content: '(';
-    margin-left:-20px;
-  }
-  //tick in margin
-  &.metamark.margin.tick.change-c:before {
-    content: '\2713';
-    margin-left:-20px;
-  }
-  //line above text
-  &.metamark.above.line.change-b:before {
-    content: '-';
-    line-height: 0.5em;
-    vertical-align: baseline;
-    position: relative;
-    top: -0.1em;
-  }
-  //tick above text
-  &.metamark.above.tick.change-b:before {
-    content: '\2713';
-    vertical-align: baseline;
-    position: relative;
-    top: -0.1em;
-    //left:-10px;
-  }
-  //tick below
-  &.metamark.below.tick.change-c:after {
-    content: '\2713';
-    position: relative;
-    float: right;
-  }
-  //para in brackets (closing)
-  &.metamark.margin.parenthesis.change-a:after {
-    content: ')';
+
+  //-----------------Metamarks
+
+  &.metamark {
+    font-family: "cursive";
+    //Where there is text '[Metamark] this is hidden and replaced with new content
+    //display:none; means there's no space where 'Metamark' would be displayed, but it hides the additional content displayed below whereas visibility leaves a gap todo solve3
+    visibility:hidden;
+
+
+    &.caret:before {
+      visibility: visible;
+      position: absolute;
+      content: '';
+      border: solid black;
+      border-width: 0 1px 1px 0;
+      display: inline-block;
+      padding: 3px;
+      transform: rotate(-135deg);
+      -webkit-transform: rotate(-135deg);
+      margin-right: -10px;
+      margin-top: 30px;
+      margin-bottom: -10px;
+    }
+
+
+    &.arrow:after {
+      visibility: visible;
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: '\01F823';
+    }
+
+
+      //para in brackets
+      &.parenthesis:before {
+        visibility: visible;
+        position: absolute;
+        content: '(';
       }
-  //word below another
-    &.note.alternative.below.change-b {
-      font-size: .83em;
+
+    //additions above text
+    &.above {
+      vertical-align: baseline;
+      position: relative;
+      top: -0.1em;
+    }
+
+
+    &.line:before {
+      visibility: visible;
+      content: '-';
       line-height: 0.5em;
       vertical-align: baseline;
       position: relative;
-      top: 0.8em;
-      right:0.9em;
+      top: -0.1em;
     }
-  //word below another
-  &.note.below.change-a {
-    font-size: .83em;
-    line-height: 0.5em;
-    vertical-align: baseline;
-    position: relative;
-    top: 0.8em;
-    right:0.9em;
+
+    //tick
+    &.tick:before {
+      visibility: visible;
+      position: absolute;
+      content: '\2713';
+      display:unset;
+    }
+
+    //additions below text
+    &.below {
+
+      position: relative;
+      float: right;
+    }
+
+//todo how to tell whether it should be opening or closing parenthesis?
+    ////para in brackets (closing)
+    //&.margin.parenthesis.change-a:after {
+    //  visibility: visible;
+    //  position: absolute;
+    //  content: ')';
+    //}
+
   }
-  &.metamark.above.asterisk.change-a:before {
+//asterisks
+  &.asterisk:before {
+    visibility: visible;
+    position: absolute;
     content: "*";
-    vertical-align: baseline;
-    position: relative;
-    top: -0.1em;
   }
   //circle around text
   &.hi.circle {
+    visibility: visible;
+    //position: absolute;
     border-radius: 50%;
     width: 36px;
     height: 36px;
@@ -172,43 +228,72 @@ span {
    float: right;
   }
 
-//margin notes
-  &.note.margin.change-c.editor {
+//----Notes
+  &.note {
     font-size: .83em;
+    line-height: 0.9em;
+    vertical-align: baseline;
+    position: relative;
     font-style: italic;
-    float:right;
-    transform: rotate(-6deg);
+    font-family: "cursive";
+    &.above {
+top: -0.8em;
+    }
+    &.below {
+      top: 0.8em;
+      right: 0.9em;
+    }
+    //margin notes
+    &.margin {
+      visibility:visible;
+      float: right;
+      display:unset;
+    }
+    //todo TEMPORARY override of previous changes to bootstrap standard--- fix HTML otherwise this tag gets applied to lots of lines in P3 page 2
+    &.alternative.margin.change-b {
+      font-size: 1rem;
+      line-height: 1.5;
+      vertical-align: initial;
+      position: initial;
+      font-style:initial;
+      font-family: "Segoe UI";
+      text-align:left;
+      display:block;
+      float: none;
+    }
   }
-  //underline
-  &.hi.underline {
-    text-decoration: underline;
-  }
-  &.add.left.change-b {
+
+
+
+
+  &.add.left {
     margin-left: -40px;
   }
-  //indicates text supplied by the editor
+
+    //-----editor supplied text
 &.supplied > *{
   font-style:italic;
 }
+  &.supplied {
+    font-style:italic;
+  }
   &.supplied.previous-deletion{
     font-style:italic;
   }
-  //don't display page nunmber
 
   &.unclear {
     color:darkslategrey;
+    font-style: italic;
   }
 }
+
 
 .head.underline {
   text-decoration: underline;
 }
 
-//unsure what these represents so ignore for now
-.pb {
-  visibility: hidden;
-}
 
+  //don't display page number
 span.pb-open, span.pb-value, span.pb-close {
   visibility:hidden;
 }
@@ -232,6 +317,6 @@ div {
 }
 
 //make xml view panel level with text start in pdf
-xml-view-panel {
-
+#xml-view-panel {
+padding-top: 80px;
 }

@@ -8,6 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./spine-index.component.scss']
 })
 export class SpineIndexComponent implements OnInit {
+CSVFile: string;
+page = 1;
+totalPages: number;
+example: boolean;
+PDF: boolean;
 
   constructor(
     private dataService: DataService,
@@ -18,7 +23,7 @@ linesWithTextList: any[] = [];
 
 
   ngOnInit() {
-
+this.CSVFile = '../../assets/SpineIndexCSV.pdf';
   }
 
   getMatchingLines() {
@@ -38,6 +43,31 @@ linesWithTextList: any[] = [];
   });
 
 }
+
+viewExample()
+{
+  this.PDF = false;
+  this.example = true;
+  }
+
+viewPDF()
+{
+  this.PDF = true;
+  this.example = false;
+}
+
+// pdf handling
+  nextPage() {
+    this.page += 1;
+  }
+
+  previousPage() {
+    this.page -= 1;
+  }
+
+  afterLoadComplete(pdfData: any) {
+    this.totalPages = pdfData.numPages;
+  }
 
 }
 

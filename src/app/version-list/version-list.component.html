@@ -8,27 +8,29 @@
     </p>
   </div>
 
+  <!-- list of versions -->
   <div class="container">
-
-    <!-- list of versions -->
     <div class="row card-group">
       <div *ngFor="let item of versionList" class="col-md-3 d-flex align-items-stretch">
         <div class="card">
-          <div class="card-title">
+        <div class="card-header text-center">
             <H3>{{item.versionTitle}}</H3>
           </div>
-          <div class="card-body">
-            <img [src]="'../../assets/thumbnails/'+item.versionID[0].idno[0]._+'.jpg'" class="card-img-top">
+          <div class="card-body d-flex flex-column">
+            <div class="text-center">
+            <img [src]="'../../assets/thumbnails/'+item.versionID[0].idno[0]._+'.jpg'" class="card-img-top" style="max-width: 60%">
+          <br/>
+            </div>
             <p>Author: {{item.author}}</p>
             <p>Type: {{item.type}}</p>
             <p *ngIf="(item.source != '')"> Source: {{item.source}}</p>
             <p>Changes: {{item.changes}}</p>
+            <div class="mt-auto">
             <div class="btn-group" role="group">
-            <button type="button" class="btn btn-primary" (click)="addToCompare(item.versionID[0].idno[0]._)">Add to Compare</button>
-            <button  type="button" class="btn btn-primary" (click)="routeView(item.versionID[0].idno[0]._)">View Poem</button>
-<!--          todo pin buttons to bottom of card-->
+              <button type="button" class="btn btn-primary" (click)="addToCompare(item.versionID[0].idno[0]._)">Add to Compare</button>
+              <button  type="button" class="btn btn-primary" (click)="routeView(item.versionID[0].idno[0]._)">View Poem</button>
             </div>
-        </div>
+        </div></div>
         </div>
       </div>
     </div>

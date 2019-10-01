@@ -12,6 +12,7 @@ export class SearchResultsComponent implements OnInit {
 
   searchText: string;
   resultsList: any;
+  resultsFound: boolean;
 
   constructor(
     private dataService: DataService,
@@ -27,13 +28,13 @@ export class SearchResultsComponent implements OnInit {
     });
 
   }
-
-  // Don't know if exist understands the * or not, could be removed if not
+  
   public doSearch() {
     console.log(this.searchText);
     const searchTerm = '*' + this.searchText.trim().toLocaleLowerCase() + '*';
     this.dataService.search(searchTerm).then(result => {
       this.resultsList = result;
+      if (result !== undefined) {this.resultsFound = true; } else { this.resultsFound = false; }
       console.log(result);
     });
   }

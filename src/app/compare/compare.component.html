@@ -1,7 +1,7 @@
 <div class='container'>
   <h2>Compare</h2>
   <div class='container'>
-  <p *ngIf="twoPoemsSelected" >{{similarity}} cosine-similarity      </p>
+  <p *ngIf="twoPoemsSelected" >{{similarity}} cosine-similarity</p>
   <div class = "compare-view-container">
     <div *ngFor="let item of poemXMLToCompare" class='compare-view-panel'>
       <div [innerHTML]="item"></div>
@@ -9,3 +9,4 @@
   </div>
 </div>
 </div>
+<!--todo why is an extra column showing?-->

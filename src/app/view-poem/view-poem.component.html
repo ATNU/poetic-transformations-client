@@ -2,14 +2,22 @@
 <div id='xml-view-panel' [innerHTML]="htmlList[page]"></div>
 </div>
 <div id='img-view-panel'>
+  <div class='page-nav-buttons'>
+
+    <button type="button" class="btn btn-primary" (click)="previousPage()" [disabled]="page === 1"> Prev </button>
+
+    <button type="button" class="btn btn-primary" (click)="nextPage()" [disabled]="page===totalPages"> Next </button>
+
+    <p>{{ page }} / {{ totalPages }}</p>
+  </div>
     <pdf-viewer [src]="pdfSrc" [show-all]="false" [page]="page" (after-load-complete)="afterLoadComplete($event)"
         [original-size]="false" [render-text]="true"></pdf-viewer>
 
     <div class='page-nav-buttons'>
 
-        <button (click)="previousPage()" [disabled]="page === 1"> Prev </button>
+        <button type="button" class="btn btn-primary" (click)="previousPage()" [disabled]="page === 1"> Prev </button>
 
-        <button (click)="nextPage()" [disabled]="totalPages === 1"> Next </button>
+        <button type="button" class="btn btn-primary" (click)="nextPage()" [disabled]="page===totalPages"> Next </button>
 
         <p>{{ page }} / {{ totalPages }}</p>
     </div>
