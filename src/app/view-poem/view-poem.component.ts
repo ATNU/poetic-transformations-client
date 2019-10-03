@@ -35,7 +35,8 @@ export class ViewPoemComponent implements OnInit {
     // call data service to get document from server and split into pages
     this.dataService.getDocument(this.id).then(poem => {
       this.htmlList = poem.split('<span class="pb">');
-      console.log(this.htmlList[1]);
+      console.log('this.htmllist');
+      console.log(this.htmlList);
       this.poemDoc = poem;
     });
 
