@@ -7,5 +7,5 @@ RUN npm rebuild node-sass
 RUN ng build
 
 FROM nginx:alpine
-COPY --from=builder /usr/local/app/client/dist/poetic-transformations-client /usr/share/nginx/html
+COPY --from=builder /usr/local/app/dist/poetry-client /usr/share/nginx/html
 RUN ls /usr/share/nginx/html
