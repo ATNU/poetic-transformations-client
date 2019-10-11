@@ -3,6 +3,21 @@
 html, body { height: 100%; }
 //body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.btn-primary {
+  background-color: #DF8803 !important;
+  border: #DF8803 !important;
+}
+
+a {
+  color: #DF8803 !important;
+}
+.btn-outline-primary {
+  background-color: #DF8803 !important;
+  border: #DF8803 !important;
+  color: black!important;
+}
+
+
 .header {
     margin-left: 10%;
     margin-top: 2%;
