@@ -15,8 +15,8 @@
   </div>
 
 <div class="container">
-  <div *ngIf="example==true">
-    <br/>
+  <div class="description-block" *ngIf="example==true">
+  <div class="description-block" *ngIf="example==true">
     <p>In the example below, poem M1 line 20 has been selected.<br/> Search the spine index CSV to find the location of that line in other versions. </p>
     <div class="row card-group">
       <div class="col-md-3">
@@ -52,8 +52,8 @@
   </div>
 </div>
 
-<div *ngIf="PDF==true" class="container text-center">
-  <div>
+<div *ngIf="PDF==true">
+<div class="description-block">
     <p>
       The full spine index is shown below, the line IDs are shown on the right, alongside their detected matches M1.1: version M1 line 1 
       <br/>
@@ -65,7 +65,8 @@
       <br>
       Some investigation would then be needed to see if this line was being relocated or if it's movment was due to insertions above
     </p>
-  </div>
+</div>
+<div class="container text-center">
   <button (click)="previousPage()" [disabled]="page === 1" class="btn btn-primary" type="button"> Prev</button>
   <button (click)="nextPage()" [disabled]="page===totalPages" class="btn btn-primary" type="button"> Next</button>
   <p>{{ page }} / {{ totalPages }}</p>
@@ -74,6 +75,7 @@
   <button (click)="previousPage()" [disabled]="page === 1" class="btn btn-primary" type="button"> Prev</button>
   <button (click)="nextPage()" [disabled]="page===totalPages" class="btn btn-primary" type="button"> Next</button>
   <p>{{ page }} / {{ totalPages }}</p>
+</div>
 </div>
 </div>
 
