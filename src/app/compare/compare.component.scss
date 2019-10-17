@@ -1,7 +1,12 @@
 .compare-view-container{
     display: flex;
     overflow: auto;
+}
 
+.compare-view-container-scroll{
+    display: flex;
+    overflow-y: auto;
+    overflow-x: scroll;
 }
 .compare-view-panel-sml{
     width: 300px;

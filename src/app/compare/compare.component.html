@@ -2,7 +2,7 @@
   <h2>Compare</h2>
   <div class='container'>
   <p *ngIf="twoPoemsSelected" >{{similarity}} cosine-similarity</p>
-  <div class = "compare-view-container">
+  <div [ngClass]="(poemXMLToCompare.length> 2) ? 'compare-view-container-scroll' : 'compare-view-container'">
     <div *ngFor="let item of poemXMLToCompare">
       <div  [ngClass]="(poemXMLToCompare.length> 2) ? 'compare-view-panel-sml' : 'compare-view-panel-lrg'" [innerHTML]="item"></div>
     </div>
