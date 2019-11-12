@@ -15,7 +15,7 @@
         <!-- list of poems -->
   <div class="row card-group">
         <div *ngFor="let item of resultsList" class="col-lg-4 d-flex align-items-stretch">
-            <div (click)="routeVersions(item.poemID)" class="card"  >
+            <div (click)="routeView(item.poemID)" class="card"  >
                <div class="card-header text-center">
                   <H3>{{item.title}}</H3>
                 </div>

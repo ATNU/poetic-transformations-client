@@ -4,7 +4,7 @@ ADD . /usr/local/app
 WORKDIR /usr/local/app/client
 RUN npm install -g @angular/cli && npm install --force
 RUN npm rebuild node-sass
-RUN ng build
+RUN ng build --prod="true"
 
 FROM nginx:alpine
 COPY --from=builder /usr/local/app/dist/poetry-client /usr/share/nginx/html
