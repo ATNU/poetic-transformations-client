@@ -17,6 +17,7 @@ import { Location, LocationStrategy, PathLocationStrategy } from '@angular/commo
 import { AboutComponent } from './about/about.component';
 import { DetailsComponent } from './details/details.component';
 import { SpineIndexComponent } from './spine-index/spine-index.component';
+import { SigninComponent } from './signin/signin.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { SpineIndexComponent } from './spine-index/spine-index.component';
     SearchResultsComponent,
     AboutComponent,
     DetailsComponent,
-    SpineIndexComponent
+    SpineIndexComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,

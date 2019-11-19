@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-root',
@@ -22,18 +23,50 @@ export class AppComponent {
   }
 
   routeHome() {
-    this.router.navigate(['home']);
+    if (this.isLoggedIn()) {
+      this.router.navigate(['home']);
+    } else {
+      localStorage.setItem('route', 'home');
+      this.router.navigate(['signin']);
+    }
   }
 
   aboutClicked() {
-  this.router.navigate(['about']);
+    if (this.isLoggedIn()) {
+      console.log('logged in');
+      this.router.navigate(['about']);
+    } else {
+      localStorage.setItem('route', 'about');
+      this.router.navigate(['signin']);
+    }
   }
 
   detailsClicked() {
-    this.router.navigate(['details']);
+    if (this.isLoggedIn()) {
+      this.router.navigate(['details']);
+    }
+    else {
+      localStorage.setItem('route', 'details');
+      this.router.navigate(['signin']);
+    }
   }
 
   spineClicked() {
-    this.router.navigate(['spine-index']);
+    if (this.isLoggedIn()) {
+      this.router.navigate(['spine-index']);
+    } else {
+      localStorage.setItem('route', 'spine-index');
+      this.router.navigate(['signin']);
+    }
+  }
+
+  public isLoggedIn() {
+    return moment().isBefore(this.getExpiration());
+  }
+
+  getExpiration() {
+    const expiration = localStorage.getItem('expires_at');
+    const expiresAt = JSON.parse(expiration);
+    return moment(expiresAt);
   }
 }

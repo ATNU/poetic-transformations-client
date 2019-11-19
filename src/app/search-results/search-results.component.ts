@@ -2,6 +2,7 @@ import { Component, OnInit, ComponentFactoryResolver } from '@angular/core';
 import { DataService } from '../data.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-search-results',
@@ -28,7 +29,7 @@ export class SearchResultsComponent implements OnInit {
     });
 
   }
-  
+
   public doSearch() {
     console.log(this.searchText);
     const searchTerm = '*' + this.searchText.trim().toLocaleLowerCase() + '*';
@@ -43,6 +44,22 @@ export class SearchResultsComponent implements OnInit {
       // function called on button click
   // use angular router to progress to view poem
   routeView(id: string) {
-    this.router.navigate(['/view-poem/' + id]);
+    if (this.isLoggedIn()) {
+      this.router.navigate(['/view-poem/' + id]);
+    }
+    else {
+      localStorage.setItem('route', '/view-poem/' + id);
+      this.router.navigate(['signin']);
+    }
+  }
+
+  public isLoggedIn() {
+    return moment().isBefore(this.getExpiration());
+  }
+
+  getExpiration() {
+    const expiration = localStorage.getItem('expires_at');
+    const expiresAt = JSON.parse(expiration);
+    return moment(expiresAt);
   }
 }
