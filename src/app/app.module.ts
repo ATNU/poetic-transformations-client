@@ -19,6 +19,7 @@ import { DetailsComponent } from './details/details.component';
 import { SpineIndexComponent } from './spine-index/spine-index.component';
 import { SigninComponent } from './signin/signin.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
