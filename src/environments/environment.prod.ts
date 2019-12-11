@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiBaseURL: 'https://poetic-transformations.ncldata.dev'
+  apiBaseURL: 'https://poetic-transformations.ncldata.dev/api'
 };
