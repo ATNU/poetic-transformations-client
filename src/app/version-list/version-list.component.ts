@@ -36,12 +36,7 @@ export class VersionListComponent implements OnInit {
   // function called on button click
   // use angular router to progress to view poem
   routeView(id: string) {
-    if (this.isLoggedIn()) {
       this.router.navigate(['/view-poem/' + id]);
-    } else {
-      localStorage.setItem('route', '/view-poem/' + id);
-      this.router.navigate(['signin']);
-    }
   }
 
   // function called on button click
@@ -65,14 +60,5 @@ export class VersionListComponent implements OnInit {
     window.open(url, '_blank');
   }
 
-  public isLoggedIn() {
-    return moment().isBefore(this.getExpiration());
-  }
-
-  getExpiration() {
-    const expiration = localStorage.getItem('expires_at');
-    const expiresAt = JSON.parse(expiration);
-    return moment(expiresAt);
-  }
 
 }
