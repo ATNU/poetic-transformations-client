@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiBaseURL: 'https://poetic-transformations.ncldata.dev/api'
+  apiBaseURL: 'https://atnu-poetic-transformations.azurewebsites.net/api'
 };
