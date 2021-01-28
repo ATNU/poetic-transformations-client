@@ -23,7 +23,7 @@
     "@angular/router": "~8.1.1",
     "bootstrap": "^3.4.1",
     "dom-parser": "^0.1.6",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "moment": "^2.24.0",
     "ng2-pdf-viewer": "^5.3.4",
     "rxjs": "~6.4.0",
