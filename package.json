@@ -24,7 +24,7 @@
     "bootstrap": "^3.4.1",
     "dom-parser": "^0.1.6",
     "jquery": "^3.4.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "ng2-pdf-viewer": "^5.3.4",
     "rxjs": "~6.4.0",
     "tslib": "^1.9.0",
